@@ -3,6 +3,11 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
+    can :tabs, PostCell
+    can :index, PostCell
+    cannot :edit, PostCell
+    cannot :show, PostCell
+
     if user.has_role? :admin
       can :manage, :all
     end

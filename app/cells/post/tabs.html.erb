@@ -1,0 +1,20 @@
+<div class="well">
+  <h1>This is common cell.</h1>
+  <p>Find me in app/cells/post/show.html.erb</p>
+
+  <% if can? :index, PostCell %>
+    <div class="well">
+      <%=  render_cell :post, :index%>
+    </div>
+  <%end%>
+  <% if can? :show, PostCell %>
+    <div class="well">
+      <%=  render_cell :post, :show, id: 1%>
+    </div>
+  <%end%>
+  <% if can? :edit, PostCell %>
+    <div class="well">
+      <%=  render_cell :post, :edit , id: 1%>
+    </div>
+  <%end%>
+</div>
