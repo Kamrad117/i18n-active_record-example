@@ -1,0 +1,16 @@
+<%= form_for(@translation) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.text_field :name %>
+    <%= f.text_field :description %>
+    <%= f.text_field :flogin %>
+    <%= f.text_field :fedit_account %>
+    <%= f.text_field :flogout %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'index', translations_path %>

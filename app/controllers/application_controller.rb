@@ -5,4 +5,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  private
+
+  def set_locale
+    I18n.locale = params[:locale]
+  end
+
 end

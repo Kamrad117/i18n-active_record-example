@@ -1,6 +1,4 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
-
-
   authenticated :user do
     root :to => 'home#index'
   end
@@ -8,4 +6,5 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   devise_for :users
   resources :users
   resources :posts
+  resources :translations
 end
