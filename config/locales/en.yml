@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  logout: default yml logout
+  login: default yml login
+  translations: default yml translations
+  edit_account: default yml edit account
