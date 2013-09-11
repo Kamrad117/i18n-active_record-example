@@ -1,11 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  before_filter { |c| c.set_translations_owner_id(current_user.id) }
+  before_filter { |c| c.set_translations_owner_id(user_id) }
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
+
+  def user_id
+    if defined?(current_user) && !current_user.nil?
+      current_user.id
+    else
+      0
+    end
+  end
+
 
   def set_translations_owner_id(id)
     assoc_foreign_key = ENV['translation_assoc_key']

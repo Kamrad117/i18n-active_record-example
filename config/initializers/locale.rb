@@ -28,10 +28,12 @@
 
         assoc_key = ENV['translation_assoc_key']
         assoc_id = ENV[assoc_key]
-        assoc_condition = ''
-        assoc_condition = "\"#{table_name}\".\"#{assoc_key}\" = #{assoc_id} AND " if assoc_key and assoc_id
-        scoped(:conditions => ["#{assoc_condition} #{column_name} IN (?) OR #{column_name} LIKE ?", keys, namespace])
-
+        if assoc_key && assoc_id
+          assoc_condition = "\"#{table_name}\".\"#{assoc_key}\" = #{assoc_id} AND "
+          scoped(:conditions => ["#{assoc_condition} #{column_name} IN (?) OR #{column_name} LIKE ?", keys, namespace])
+        else
+          self
+        end
       end
     end
   end
