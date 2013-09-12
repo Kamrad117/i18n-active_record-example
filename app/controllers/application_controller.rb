@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
+  include I18n::Backend::ControllerHelpers
   protect_from_forgery
+
   before_filter { |c| c.set_translations_owner_id(user_id) }
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -10,14 +12,8 @@ class ApplicationController < ActionController::Base
     if defined?(current_user) && !current_user.nil?
       current_user.id
     else
-      0
+      nil
     end
-  end
-
-
-  def set_translations_owner_id(id)
-    assoc_foreign_key = ENV['translation_assoc_key']
-    ENV[assoc_foreign_key] = id.to_s
   end
 
   private

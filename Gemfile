@@ -16,9 +16,12 @@ gem 'rolify'
 gem 'simple_form'
 gem 'cells'
 gem "binding_of_caller"
+
 gem 'i18n-active_record',
-    :git => 'git://github.com/svenfuchs/i18n-active_record.git',
-    :require => 'i18n/active_record'
+  :git => 'git://github.com/sergeyenin/i18n-active_record.git',
+  :branch => 'development',
+  :require => 'i18n/active_record'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
